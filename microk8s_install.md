@@ -12,34 +12,38 @@ More info about microk8s install: https://microk8s.io/docs/getting-started
 
 1. Install microk8s on ubuntu machine
 
-  `$ sudo snap install microk8s --classic`
+    `$ sudo snap install microk8s --classic`
 
 2. Join the group 
 
-`$ sudo usermod -a -G microk8s $USER`
+   `$ sudo usermod -a -G microk8s $USER`
 
-`$ sudo chown -f -R $USER ~/.kube`
+   `$ sudo chown -f -R $USER ~/.kube`
 
 3. Reconect to shell
 
 4. Check microk8s status
 
-`$ microk8s status --wait-ready`
+   `$ microk8s status --wait-ready`
 
 5. [Optional] Change `microk8s kubectl` command to `kubectl`
 
-`$ alias kubectl='microk8s kubectl'`
+   `$ alias kubectl='microk8s kubectl'`
+
+6. [Optional] Enable microk8s addons that you will problebly need
+
+   `$ microk8s enable dns dashboard ingress`
   
 
 ## 2. Install microk8s addons <a name="microk8s_addon"></a>
 
 * Display addons list
 
-`$ microk8s status`
+   `$ microk8s status`
 
 * Enable any addons form that list
 
-`$ microk8s enable  <ADDON_NAME>`
+   `$ microk8s enable  <ADDON_NAME>`
 
 ## 3. Start stop microk8s service  <a name='microk8s_start_stop'></a>
 
@@ -47,18 +51,18 @@ Microk8s will automatically restart after a reboot.
 
 * To start 
 
-`$ microk8s start`
+   `$ microk8s start`
 
 * To stop 
 
-`$ microk8s stop`
+   `$ microk8s stop`
 
 ## 4. Cluster setup <a name='microk8s_cluster'></a>
 
 1. Install microk8s on all the nodes as shown above
 2. On the node that you want to be the `Master Node` run  the following command
 
-`$ microk8s add-node`
+   `$ microk8s add-node`
 
 It will print a joining key. 
 
